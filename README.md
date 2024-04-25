@@ -50,6 +50,12 @@ This is a Flutter application designed to help users build their resumes. It pro
 3. Ensure you have Flutter installed and properly configured.
 4. Run the app on a simulator or physical device.
 
+## Images & Videos
+
+![Artboard 1](https://github.com/MeetPatel092/Resume-Builder/assets/149999890/2a5c5d58-75b2-45f3-abec-62bf7a468253)
+
+https://github.com/MeetPatel092/Resume-Builder/assets/149999890/f39d6b46-2973-442d-b63e-86848857a2d6
+
 ## Author
 
 [Your Name/Username]
