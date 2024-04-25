@@ -17,8 +17,6 @@ class _WorkSpaceState extends State<WorkSpace> {
   TextEditingController firstnamecontroller = TextEditingController();
   TextEditingController lastnamecontroller = TextEditingController();
 
-  var AnimatedSnackBar;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -497,11 +495,9 @@ class _WorkSpaceState extends State<WorkSpace> {
                               if (aboutkey.currentState!.validate()) {
                                 aboutkey.currentState!.save();
 
-                                aboutkey.currentState!.reset();
-                                firstnamecontroller.clear();
-                                lastnamecontroller.clear();
-                                Navigator.of(context)
-                                    .pushReplacementNamed("contactinfo");
+                                GlobalKeyy.Firstname = firstnamecontroller.text;
+                                GlobalKeyy.Lastname = lastnamecontroller.text;
+
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
@@ -510,6 +506,9 @@ class _WorkSpaceState extends State<WorkSpace> {
                                     backgroundColor: Colors.green,
                                   ),
                                 );
+
+                                Navigator.of(context)
+                                    .pushReplacementNamed("contactinfo");
                               }
                             },
                             style: ElevatedButton.styleFrom(

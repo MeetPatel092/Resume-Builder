@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController resumename = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +55,7 @@ class _HomePageState extends State<HomePage> {
                     content: Expanded(
                       child: TextField(
                         onChanged: (val) {},
+                        controller: resumename,
                         decoration: InputDecoration(
                           hintText: "Enter Resume Name",
                           border: OutlineInputBorder(),
@@ -66,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                         elevation: 3,
                         onPressed: () {
                           Navigator.of(context)
-                              .pushReplacementNamed("workspace");
+                              .pushNamedAndRemoveUntil("/", (route) => false);
                         },
                         child: Icon(Icons.close),
                       ),
@@ -74,9 +77,12 @@ class _HomePageState extends State<HomePage> {
                         backgroundColor: primaryWhite,
                         mini: true,
                         elevation: 3,
-                        onPressed: () {},
-                        child: Icon(Icons.close),
-                      )
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacementNamed("workspace");
+                        },
+                        child: Icon(Icons.done),
+                      ),
                     ],
                   );
                 });

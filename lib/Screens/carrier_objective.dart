@@ -505,8 +505,8 @@ class _CarrierObjectiveState extends State<CarrierObjective> {
                       onPressed: () {
                         if (carrierObjective.currentState!.validate()) {
                           carrierObjective.currentState!.save();
-                          carrierObjective.currentState!.reset();
-                          descriptioncontroller.clear();
+                          GlobalKeyy.description = descriptioncontroller.text;
+                          GlobalKeyy.software = softwarecontroller.text;
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content:
                                 Text("your information saved successfully"),

@@ -529,11 +529,9 @@ class _ContectInfoState extends State<ContectInfo> {
                             onPressed: () {
                               if (contactinfo.currentState!.validate()) {
                                 contactinfo.currentState!.save();
-
-                                contactinfo.currentState!.reset();
-                                emailcontroller.clear();
-                                phonecontroller.clear();
-                                addresscontroller.clear();
+                                GlobalKeyy.Email = emailcontroller.text;
+                                GlobalKeyy.Phone = phonecontroller.text;
+                                GlobalKeyy.Address = addresscontroller.text;
 
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(

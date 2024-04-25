@@ -585,10 +585,13 @@ class _EductionpageState extends State<Eductionpage> {
                   child: ElevatedButton(
                       onPressed: () {
                         if (Educationkey.currentState!.validate()) {
-                          coursecontroller.clear();
-                          schoolprcontroller.clear();
-                          schoolprcontroller.clear();
-                          yearcontroller.clear();
+                          Educationkey.currentState!.validate();
+
+                          GlobalKeyy.course = coursecontroller.text;
+                          GlobalKeyy.university = schoolunicontroller.text;
+                          GlobalKeyy.pass_year = yearcontroller.text;
+                          GlobalKeyy.collage_pr = schoolprcontroller.text;
+
                           Navigator.of(context)
                               .pushReplacementNamed("experience");
                           ScaffoldMessenger.of(context).showSnackBar(

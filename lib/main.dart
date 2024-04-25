@@ -33,7 +33,7 @@ void main() {
         'achievement': (context) => const Achievement(),
         'references': (context) => const References(),
         'declaration': (context) => const Declaration(),
-        'pdfPage': (context) => const Pdfpage(),
+        'pdfPage': (context) => const PdfDesign(),
       },
     ),
   );

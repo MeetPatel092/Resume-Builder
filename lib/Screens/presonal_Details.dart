@@ -16,6 +16,8 @@ class _PresonalDetailState extends State<PresonalDetail> {
   TextEditingController dobcontroller = TextEditingController();
   TextEditingController nationalitycontroller = TextEditingController();
 
+  String? maritalStatus;
+  List<String> languagesKnown = [];
   double iconheight = 28;
   bool start2 = true;
   @override
@@ -489,10 +491,15 @@ class _PresonalDetailState extends State<PresonalDetail> {
                                 Row(
                                   children: [
                                     Checkbox(
-                                        value: GlobalKeyy.english,
+                                        value:
+                                            languagesKnown.contains("English"),
                                         onChanged: (val) {
                                           setState(() {
-                                            GlobalKeyy.english = val!;
+                                            if (val!) {
+                                              languagesKnown.add('English');
+                                            } else {
+                                              languagesKnown.remove('English');
+                                            }
                                           });
                                         }),
                                     Text(
@@ -504,10 +511,14 @@ class _PresonalDetailState extends State<PresonalDetail> {
                                 Row(
                                   children: [
                                     Checkbox(
-                                        value: GlobalKeyy.hindi,
+                                        value: languagesKnown.contains("Hindi"),
                                         onChanged: (val) {
                                           setState(() {
-                                            GlobalKeyy.hindi = val!;
+                                            if (val!) {
+                                              languagesKnown.add('Hindi');
+                                            } else {
+                                              languagesKnown.remove('Hindi');
+                                            }
                                           });
                                         }),
                                     Text(
@@ -519,10 +530,15 @@ class _PresonalDetailState extends State<PresonalDetail> {
                                 Row(
                                   children: [
                                     Checkbox(
-                                        value: GlobalKeyy.gujarati,
+                                        value:
+                                            languagesKnown.contains("Gujarati"),
                                         onChanged: (val) {
                                           setState(() {
-                                            GlobalKeyy.gujarati = val!;
+                                            if (val!) {
+                                              languagesKnown.add('Gujarati');
+                                            } else {
+                                              languagesKnown.remove('Gujarati');
+                                            }
                                           });
                                         }),
                                     Text(
@@ -578,10 +594,6 @@ class _PresonalDetailState extends State<PresonalDetail> {
                                   nationalitycontroller.clear();
 
                                   GlobalKeyy.genderStatus = "Male";
-
-                                  GlobalKeyy.english = false;
-                                  GlobalKeyy.hindi = false;
-                                  GlobalKeyy.gujarati = false;
                                 },
                                 style: OutlinedButton.styleFrom(
                                     foregroundColor: primaryBlue),
@@ -603,6 +615,12 @@ class _PresonalDetailState extends State<PresonalDetail> {
                                     presonalkey.currentState!.reset();
                                     dobcontroller.clear();
                                     nationalitycontroller.clear();
+                                    GlobalKeyy.dob = dobcontroller.text;
+                                    GlobalKeyy.nationality =
+                                        nationalitycontroller.text;
+                                    GlobalKeyy.nationality =
+                                        nationalitycontroller.text;
+
                                     Navigator.of(context)
                                         .pushReplacementNamed("eduction");
                                     ScaffoldMessenger.of(context).showSnackBar(

@@ -13,11 +13,11 @@ class _ReferencesState extends State<References> {
   double iconheight = 28;
 
   GlobalKey<FormState> Referenceskey = GlobalKey<FormState>();
-  TextEditingController pr_titlecontroller = TextEditingController();
+  TextEditingController refNamecontroller = TextEditingController();
 
-  TextEditingController technologiescontroller = TextEditingController();
+  TextEditingController designationcontroller = TextEditingController();
 
-  TextEditingController rolescontroller = TextEditingController();
+  TextEditingController institutecontroller = TextEditingController();
 
   bool start2 = true;
 
@@ -437,7 +437,7 @@ class _ReferencesState extends State<References> {
                               ),
                               TextFormField(
                                 onSaved: (val) {},
-                                controller: pr_titlecontroller,
+                                controller: refNamecontroller,
                                 decoration: InputDecoration(
                                   hintText: "Suresh shah",
                                   hintStyle: TextStylling.text_form,
@@ -457,7 +457,7 @@ class _ReferencesState extends State<References> {
                                   ),
                                   TextFormField(
                                     onSaved: (val) {},
-                                    controller: rolescontroller,
+                                    controller: designationcontroller,
                                     decoration: InputDecoration(
                                       hintMaxLines: 1,
                                       hintText: "marketing Manager,ID- 654653",
@@ -486,7 +486,7 @@ class _ReferencesState extends State<References> {
                                       return null;
                                     },
                                     onSaved: (val) {},
-                                    controller: technologiescontroller,
+                                    controller: institutecontroller,
                                     decoration: InputDecoration(
                                       hintMaxLines: 1,
                                       hintText: "Green Energy Pvt Ltd",
@@ -529,9 +529,14 @@ class _ReferencesState extends State<References> {
                                     setState(() {
                                       if (Referenceskey.currentState!
                                           .validate()) {
-                                        rolescontroller.clear();
-                                        pr_titlecontroller.clear();
-                                        technologiescontroller.clear();
+                                        Referenceskey.currentState!.save();
+
+                                        GlobalKeyy.refere_ncename =
+                                            refNamecontroller.text;
+                                        GlobalKeyy.designation =
+                                            designationcontroller.text;
+                                        GlobalKeyy.institute =
+                                            institutecontroller.text;
 
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(

@@ -465,6 +465,10 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                           onChanged: (val) {
                                             setState(() {
                                               CProgramming = val!;
+                                              if (CProgramming) {
+                                                GlobalKeyy.TechnologiesList.add(
+                                                    "C Programming");
+                                              }
                                             });
                                           }),
                                       Text(
@@ -480,6 +484,10 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                           onChanged: (val) {
                                             setState(() {
                                               Cplus = val!;
+                                              if (Cplus) {
+                                                GlobalKeyy.TechnologiesList.add(
+                                                    "C++");
+                                              }
                                             });
                                           }),
                                       Text(
@@ -495,6 +503,10 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                           onChanged: (val) {
                                             setState(() {
                                               flutter = val!;
+                                              if (flutter) {
+                                                GlobalKeyy.TechnologiesList.add(
+                                                    "Flutter");
+                                              }
                                             });
                                           }),
                                       Text(
@@ -615,11 +627,14 @@ class _ProjectsPageState extends State<ProjectsPage> {
                               child: ElevatedButton(
                                   onPressed: () {
                                     if (Projectkey.currentState!.validate()) {
-                                      rolescontroller.clear();
-                                      pr_Descriptioncontroller.clear();
-                                      pr_titlecontroller.clear();
-                                      technologiescontroller.clear();
-
+                                      GlobalKeyy.projectsTitle =
+                                          pr_titlecontroller.text;
+                                      GlobalKeyy.projectsrolse =
+                                          rolescontroller.text;
+                                      GlobalKeyy.projectDescription =
+                                          pr_Descriptioncontroller.text;
+                                      GlobalKeyy.project_technologies =
+                                          technologiescontroller.text;
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(

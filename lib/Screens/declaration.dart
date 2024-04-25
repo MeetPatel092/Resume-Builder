@@ -14,9 +14,12 @@ class _DeclarationState extends State<Declaration> {
   double iconheight = 28;
 
   bool declaration = false;
+  bool pdf = false;
 
   GlobalKey<FormState> declarationkey = GlobalKey<FormState>();
   TextEditingController declarationcontroller = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
 
   bool start2 = true;
   @override
@@ -474,6 +477,7 @@ class _DeclarationState extends State<Declaration> {
                                       Expanded(
                                         flex: 2,
                                         child: TextField(
+                                          controller: dateController,
                                           keyboardType: TextInputType.number,
                                           decoration: InputDecoration(
                                             hintText: "DD/MM/YYYY",
@@ -490,6 +494,7 @@ class _DeclarationState extends State<Declaration> {
                                       Expanded(
                                         flex: 2,
                                         child: TextField(
+                                          controller: cityController,
                                           decoration: InputDecoration(
                                             hintMaxLines: 2,
                                             hintText:
@@ -529,7 +534,34 @@ class _DeclarationState extends State<Declaration> {
                                         width: 120,
                                         child: ElevatedButton(
                                             onPressed: () {
-                                              setState(() {});
+                                              setState(() {
+                                                if (declarationkey.currentState!
+                                                    .validate()) {
+                                                  GlobalKeyy.declaration =
+                                                      declarationcontroller
+                                                          .text;
+                                                  GlobalKeyy.description_date =
+                                                      dateController.text;
+                                                  GlobalKeyy.city =
+                                                      cityController.text;
+
+                                                  pdf = true;
+
+                                                  Navigator.of(context)
+                                                      .pushNamedAndRemoveUntil(
+                                                          "pdfPage",
+                                                          (route) => false);
+                                                }
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                        "your information is saved successfully!!!"),
+                                                    backgroundColor:
+                                                        Colors.green,
+                                                  ),
+                                                );
+                                              });
                                             },
                                             style: ElevatedButton.styleFrom(
                                               backgroundColor: primaryBlue,
@@ -553,6 +585,17 @@ class _DeclarationState extends State<Declaration> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("your PDF is downloading successfully!!!"),
+              backgroundColor: Colors.green,
+            ),
+          );
+        },
+        child: Icon(Icons.picture_as_pdf),
       ),
     );
   }

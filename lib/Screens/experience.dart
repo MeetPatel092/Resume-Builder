@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:resume_builder/color/color.dart';
 import 'package:resume_builder/utills.dart';
@@ -15,13 +16,9 @@ class _ExperienceState extends State<Experience> {
 
   GlobalKey<FormState> Experiencekey = GlobalKey<FormState>();
   TextEditingController company_namecontroller = TextEditingController();
-
   TextEditingController quality_testcontroller = TextEditingController();
-
   TextEditingController rolescontroller = TextEditingController();
-
   TextEditingController date_joinecontroller = TextEditingController();
-
   TextEditingController date_exitcontroller = TextEditingController();
 
   bool start2 = true;
@@ -526,7 +523,8 @@ class _ExperienceState extends State<Experience> {
                                               groupValue: employedstatus,
                                               onChanged: (val) {
                                                 setState(() {
-                                                  employedstatus = val!;
+                                                  employedstatus =
+                                                      val.toString();
                                                 });
                                               }),
                                           Text(
@@ -543,7 +541,8 @@ class _ExperienceState extends State<Experience> {
                                               groupValue: employedstatus,
                                               onChanged: (val) {
                                                 setState(() {
-                                                  employedstatus = val!;
+                                                  employedstatus =
+                                                      val.toString();
                                                 });
                                               }),
                                           Text(
@@ -670,9 +669,20 @@ class _ExperienceState extends State<Experience> {
                                   onPressed: () {
                                     if (Experiencekey.currentState!
                                         .validate()) {
-                                      company_namecontroller.clear();
-                                      quality_testcontroller.clear();
-                                      rolescontroller.clear();
+                                      Experiencekey.currentState!.save();
+
+                                      GlobalKeyy.companyname =
+                                          company_namecontroller.text;
+                                      GlobalKeyy.quality_test =
+                                          quality_testcontroller.text;
+                                      GlobalKeyy.roles = rolescontroller.text;
+                                      GlobalKeyy.date_jonied =
+                                          date_joinecontroller.text;
+                                      GlobalKeyy.date_exit =
+                                          date_exitcontroller.text;
+
+                                      GlobalKeyy.employeeStatus =
+                                          employedstatus;
 
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(

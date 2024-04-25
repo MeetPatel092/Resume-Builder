@@ -93,10 +93,8 @@ class GlobalKeyy {
 
   static String dob = "";
   static String nationality = "";
-  static String genderStatus = "Male";
-  static bool english = false;
-  static bool hindi = false;
-  static bool gujarati = false;
+  static String genderStatus = "";
+  static List Languages = [];
   // education page
 
   static String course = "";
@@ -104,17 +102,28 @@ class GlobalKeyy {
   static String collage_pr = "";
   static String pass_year = "";
   // experience page
-
-  //  technical page
-
+  static String companyname = "";
+  static String quality_test = "";
+  static String roles = "";
+  static String date_jonied = "";
+  static String date_exit = "";
+  static String employeeStatus = "";
   //  project page
+  static String projectsTitle = "";
+  static List<String> TechnologiesList = [];
+  static String projectsrolse = "";
+  static String project_technologies = "";
+  static String projectDescription = "";
+  // references page
+  static String refere_ncename = "";
+  static String designation = "";
+  static String institute = "";
+  //  declaration page
+  static String declaration = "";
+  static String description_date = "";
+  static String city = "";
 
   // achievement page
-
-  // references page
-
-  //  declaration page
-
   static List<TextEditingController> textControllerSkills = [
     TextEditingController(),
     TextEditingController(),
@@ -124,7 +133,6 @@ class GlobalKeyy {
     TextEditingController(),
     TextEditingController(),
   ];
-
   // technical skills
   static List<TextEditingController> text2ControllerSkills = [
     TextEditingController(),
@@ -135,4 +143,76 @@ class GlobalKeyy {
     TextEditingController(),
     TextEditingController(),
   ];
+}
+
+class ResumeData {
+  String? Firstname;
+  String? Lastname;
+  String? email;
+  String? phoneNum;
+  String? address;
+  // File? imagePath;
+  String? careerObjective;
+  String? currentDesignation;
+  String? dateOfBirth;
+  String? maritalStatus;
+  List? languageKnown;
+  String? nationality;
+  String? courseDegree;
+  String? schoolCollage;
+  String? percentage;
+  String? yearOfPass;
+  String? companyName;
+  String? work;
+  String? rolesOptional;
+  String? employeeStatus;
+  String? dateJoined;
+  String? dateExit;
+  String? projectTitle;
+  List<String> technologie_List = [];
+  String? roles;
+  String? technologys;
+  String? projectDescription;
+  String? refranceName;
+  String? designation;
+  String? organizationInstitude;
+  String? description;
+  String? dateDeclaration;
+  String? cityDeclaration;
+
+  ResumeData({
+    required this.Firstname,
+    required this.Lastname,
+    required this.email,
+    required this.phoneNum,
+    required this.address,
+    // required this.imagePath,
+    required this.careerObjective,
+    required this.currentDesignation,
+    required this.dateOfBirth,
+    required this.maritalStatus,
+    required this.languageKnown,
+    required this.nationality,
+    required this.courseDegree,
+    required this.schoolCollage,
+    required this.percentage,
+    required this.yearOfPass,
+    required this.companyName,
+    required this.work,
+    required this.rolesOptional,
+    required this.employeeStatus,
+    required this.dateJoined,
+    required this.dateExit,
+    required this.projectTitle,
+    required this.technologie_List,
+    required this.roles,
+    required this.technologys,
+    required this.projectDescription,
+    required this.refranceName,
+    required this.designation,
+    required this.organizationInstitude,
+    required this.description,
+    required this.dateDeclaration,
+    required this.cityDeclaration,
+  });
 }
